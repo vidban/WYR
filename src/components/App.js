@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
-// import WelcomeLogin from './WelcomeLogin'
+import WelcomeLogin from './WelcomeLogin'
 
 class App extends Component {
   componentDidMount() {
@@ -9,12 +10,29 @@ class App extends Component {
   }
   render() {
     return (
-      <div className='container'>
-      Hello There You!
-        {/* <WelcomeLogin /> */}
-      </div>
+      <Router>
+        <Fragment>
+          <div className='container'>
+            {this.props.loading === true
+              ? null
+              :
+              <div>
+                <Route path ='/' exact component= {WelcomeLogin} />
+              </div>
+            }
+
+          </div>
+        </Fragment>
+      </Router>
+
     );
   }
 }
 
-export default connect()(App)
+/* Only render components/containers when data from handleInitialData is finished */
+function mapStateToProps ({authedUser}) {
+  return {
+    loading: authedUser === null
+  }
+}
+export default connect(mapStateToProps)(App)
