@@ -14,8 +14,11 @@ code {
     monospace;
 }
 
-.App {
+.container {
   text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .App-logo {
