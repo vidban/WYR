@@ -1,8 +1,28 @@
-export const SET_AUTHED_USER = 'SET_AUTHED_USER'
+import { setActiveUser } from '../utils/api'
 
-export function setAuthedUser (id) {
+export const ADD_AUTHED_USER = 'ADD_AUTHED_USER'
+export const REMOVE_AUTHED_USER = 'REMOVE_AUTHED_USER'
+
+export function addAuthedUser (name) {
     return {
-        type: SET_AUTHED_USER,
-        id
+        type: ADD_AUTHED_USER,
+        name
     }
 }
+
+export function handleAddAuthedUser(name) {
+    return (dispatch) => {
+
+        return setActiveUser(name)
+            .then((name) => dispatch(addAuthedUser(name)))
+    }
+}
+
+export function removeAuthedUser () {
+    return {
+        type: REMOVE_AUTHED_USER,
+    }
+}
+
+
+

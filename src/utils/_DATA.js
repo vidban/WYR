@@ -119,6 +119,9 @@ let questions = {
   },
 }
 
+let activeUser = ""
+
+
 function generateUID () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
@@ -132,6 +135,12 @@ export function _getUsers () {
 export function _getQuestions () {
   return new Promise((res, rej) => {
     setTimeout(() => res({...questions}), 1000)
+  })
+}
+
+export function _getActiveuser() {
+  return new Promise((res, rej) => {
+    setTimeout(() => res({...activeUser}), 1000)
   })
 }
 
@@ -149,6 +158,15 @@ function formatQuestion ({ optionOneText, optionTwoText, author }) {
       text: optionTwoText,
     }
   }
+}
+
+export function _setActiveUser (name) {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      activeUser = name
+      res(name)
+    },500)
+  })
 }
 
 export function _saveQuestion (question) {
