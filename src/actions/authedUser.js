@@ -1,4 +1,4 @@
-import { setActiveUser } from '../utils/api'
+import { setAuthedUser } from '../utils/api'
 
 export const ADD_AUTHED_USER = 'ADD_AUTHED_USER'
 export const REMOVE_AUTHED_USER = 'REMOVE_AUTHED_USER'
@@ -13,7 +13,7 @@ export function addAuthedUser (name) {
 export function handleAddAuthedUser(name) {
     return (dispatch) => {
 
-        return setActiveUser(name)
+        return setAuthedUser(name)
             .then((name) => dispatch(addAuthedUser(name)))
     }
 }

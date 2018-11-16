@@ -119,7 +119,7 @@ let questions = {
   },
 }
 
-let activeUser = ""
+let authedUser = null
 
 
 function generateUID () {
@@ -138,9 +138,9 @@ export function _getQuestions () {
   })
 }
 
-export function _getActiveuser() {
+export function _getAuthedUser() {
   return new Promise((res, rej) => {
-    setTimeout(() => res({...activeUser}), 1000)
+    setTimeout(() => res({...authedUser}), 1000)
   })
 }
 
@@ -160,11 +160,11 @@ function formatQuestion ({ optionOneText, optionTwoText, author }) {
   }
 }
 
-export function _setActiveUser (name) {
+export function _setAuthedUser (name) {
   return new Promise((res, rej) => {
     setTimeout(() => {
-      activeUser = name
-      res(name)
+      authedUser = users[name]
+      res(authedUser)
     },500)
   })
 }

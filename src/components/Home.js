@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
+import Nav from './Nav'
+import Autheduser from './AuthedUser'
 
-class Home extends Component {
-    render() {
-        return (
-            <div>Hello</div>
-        )
-    }
+
+export default function  Home () {
+    return (
+        <div>
+            <Nav />
+            <Autheduser />
+        </div>
+    )
 }
-
-export default Home

@@ -1,16 +1,19 @@
 import {
     _getUsers,
-    _setActiveUser
+    _getAuthedUser,
+    _setAuthedUser
   } from './_DATA.js'
 
 export function getInitialData () {
   return Promise.all([
     _getUsers(),
-    ]).then(([users]) => ({
+    _getAuthedUser(),
+    ]).then(([users,authedUser]) => ({
     users,
+    authedUser,
     }))
 }
 
-export function setActiveUser(name){
-  return _setActiveUser(name)
+export function setAuthedUser(name){
+  return _setAuthedUser(name)
 }

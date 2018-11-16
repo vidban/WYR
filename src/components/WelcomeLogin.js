@@ -31,26 +31,25 @@ class WelcomeLogin extends Component {
     }
 
     render(){
-        const { userNames } = this.props
-        const { loggedIn } = this.state
-        console.log(loggedIn)
+        const { allUsers, authedUser } = this.props
 
-        if (loggedIn === true) {
+        if (authedUser.id) {
             return <Redirect to = '/home' />
         }
 
         return (
             <div className="welcome-box">
                 <header className="welcome-header">
-                    <h2>Welcome to the "Would You Rather" App!</h2>
-                    <h3>Please log in to Continue</h3>
+                    <h2>Welcome to "Would You Rather"</h2>
+                    <h3>Please Login to Begin</h3>
                 </header>
                 <section>
                     <img src={logo} className="App-logo" alt="man thinking" />
                     <h1>Sign in</h1>
                     <form onSubmit={this.handleSubmit}>
                         <select ref = 'username' onChange ={this.handleChange}>
-                            {userNames.map((user) => (
+                            <option>Choose...</option>
+                            {allUsers.map((user) => (
                                 <option key={user} value ={user}>{user}</option>
                             ))}
                         </select>
@@ -62,9 +61,10 @@ class WelcomeLogin extends Component {
     }
 }
 
-function mapStateToProps({users}) {
+function mapStateToProps({users, authedUser}) {
     return {
-        userNames: Object.keys(users)
+        allUsers: Object.keys(users),
+        authedUser
     }
 }
 

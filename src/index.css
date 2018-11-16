@@ -51,6 +51,10 @@ code {
   min-width: 100vw;
 }
 
+.welcome-header h3{
+  color: white;
+}
+
 section{
   display: flex;
   flex-direction: column;
@@ -86,3 +90,82 @@ select {
 
 }
 
+/* -----Navigation---------- */
+.nav {
+  background-color: seagreen;
+}
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+
+}
+
+.nav h1,h2{
+  color: white;
+}
+
+.nav img {
+  max-width: 100px;
+  max-height: 100px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: seashell;
+  margin: 5px;
+}
+
+.nav li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+/* --------AuthedUser----------- */
+
+.info {
+  max-width: 80%;
+  border: 2px solid grey;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info h2,h3{
+  color: seagreen
+
+}
+
+.info .authed-user {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  border-bottom: 2px solid gray
+}
+
+.authed-user img{
+  max-width: 30%;
+}
+
+.polls {
+  min-width: 100%;
+  padding-top:5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid turquoise;
+}
+
+.tab {
+  margin: 0;
+  min-width: 48%;
+  border: 1px solid turquoise;
+  border-radius: 20px 20px 0 0;
+}

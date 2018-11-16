@@ -18,16 +18,14 @@ class App extends Component {
           <div className='container'>
           {this.props.loading === true
               ? null
-              :
-                <div>
-                  <Route path = '/login' exact component= {WelcomeLogin} />
-                  <Route path = '/home' component = {Home} />
+              : <div>
+                  <Route path = '/' exact component= {WelcomeLogin} />
+                  <Route path = '/home/' component = {Home} />
                 </div>
           }
           </div>
         </Fragment>
       </Router>
-
     );
   }
 }
