@@ -14,15 +14,12 @@ class AuthedUser extends Component {
         this.props.dispatch(handleGetQuestions())
     }
 
-    handleAnsweredTabClick = () => {
-        this.setState(() => ({
-            activeTab: 'AnsweredQs'
-        }))
-    }
+    toggleTabs = (e) => {
+        const ans = 'AnsweredQs'
+        const { activeTab } = this.state
 
-    handleUnansweredTabClick = () => {
         this.setState(() => ({
-            activeTab: 'UnansweredQs'
+                activeTab: activeTab === ans ? 'UnansweredQs' : ans
         }))
     }
 
@@ -39,10 +36,10 @@ class AuthedUser extends Component {
                 </div>
 
                 <div className="polls">
-                        <div className="tab" onClick={this.handleUnansweredTabClick}>
+                        <div className={activeTab === 'UnansweredQs' ? 'tab active' : 'tab'} onClick={this.toggleTabs}>
                             <h2>Unanswered Polls</h2>
                         </div>
-                        <div className = "tab" onClick={this.handleAnsweredTabClick}>
+                        <div className = {activeTab === 'AnsweredQs' ? 'tab active' : 'tab'} onClick={this.toggleTabs} onClick={this.toggleTabs}>
                             <h2>Answered Polls</h2>
                         </div>
                 </div>
