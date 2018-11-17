@@ -21,14 +21,6 @@ class Nav extends Component {
                     </NavLink>
                     </li>
 
-                    {/* <li className='autheduser'>
-                        <h3>You are logged in as:</h3>
-                        <div className='user-info'>
-                            <img src={authedUser.avatarURL} alt="" />
-                            <h2>{authedUser.name}</h2>
-                        </div>
-                    </li> */}
-
                     <li>
                     <NavLink to='/' exact style={{textDecoration: 'none'}}>
                         <h2>Logout</h2>

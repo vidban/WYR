@@ -48,7 +48,7 @@ class WelcomeLogin extends Component {
                     <h1>Sign in</h1>
                     <form onSubmit={this.handleSubmit}>
                         <select ref = 'username' onChange ={this.handleChange}>
-                            <option>Choose...</option>
+                            <option>Choose an avatar</option>
                             {allUsers.map((user) => (
                                 <option key={user} value ={user}>{user}</option>
                             ))}
@@ -61,10 +61,11 @@ class WelcomeLogin extends Component {
     }
 }
 
-function mapStateToProps({users, authedUser}) {
+function mapStateToProps({users, authedUser, questions}) {
     return {
         allUsers: Object.keys(users),
-        authedUser
+        authedUser,
+        questions
     }
 }
 

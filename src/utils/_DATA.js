@@ -62,7 +62,7 @@ let questions = {
     },
     optionTwo: {
       votes: ['heihei', 'moana'],
-      text: 'become a supervillian'
+      text: 'become a supervillain'
     }
   },
   "am8ehyc8byjqgar0jgpub9": {

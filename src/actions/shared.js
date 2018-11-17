@@ -1,10 +1,10 @@
 import { getInitialData } from '../utils/api'
 import { receiveUsers } from '../actions/users'
 import { addAuthedUser } from '../actions/authedUser'
-// import { handleAddAuthedUser } from '../actions/authedUser'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
 const AUTHED_NAME = 'none'
+// const QUESTIONS = {}
 
 export function handleInitialData() {
     return (dispatch) => {

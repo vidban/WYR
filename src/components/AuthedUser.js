@@ -1,14 +1,34 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { handleGetQuestions } from '../actions/questions'
+import AnsweredQs from './AnsweredQs'
+import UnansweredQs from './UnansweredQs'
 
 
 class AuthedUser extends Component {
     state = {
-        activeTab: ''
+        activeTab: 'AnsweredQs',
     }
+
+    componentDidMount() {
+        this.props.dispatch(handleGetQuestions())
+    }
+
+    handleAnsweredTabClick = () => {
+        this.setState(() => ({
+            activeTab: 'AnsweredQs'
+        }))
+    }
+
+    handleUnansweredTabClick = () => {
+        this.setState(() => ({
+            activeTab: 'UnansweredQs'
+        }))
+    }
+
     render() {
         const { authedUser } = this.props
-        const { activeTab } = this.state;
+        const { activeTab } = this.state
 
         return (
             <main className="info">
@@ -19,15 +39,20 @@ class AuthedUser extends Component {
                 </div>
 
                 <div className="polls">
-                        <div className="tab">
+                        <div className="tab" onClick={this.handleUnansweredTabClick}>
                             <h2>Unanswered Polls</h2>
                         </div>
-                        <div className = "tab">
+                        <div className = "tab" onClick={this.handleAnsweredTabClick}>
                             <h2>Answered Polls</h2>
                         </div>
                 </div>
                 <div className="questions">
-                   {/* Add answered/unanswered components*/}
+                    {activeTab === 'AnsweredQs' &&
+                        <AnsweredQs />
+                    }
+                    {activeTab === 'UnansweredQs' &&
+                        <UnansweredQs />
+                    }
                 </div>
             </main>
         )

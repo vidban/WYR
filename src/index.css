@@ -99,11 +99,16 @@ select {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  text-decoration: none;
   color: white;
-
 }
 
+ul {
+  padding: 0
+}
+li {
+  list-style-type: none;
+  text-decoration: none;
+}
 .nav h1,h2{
   color: white;
 }
@@ -118,9 +123,7 @@ select {
 }
 
 .nav li {
-  list-style-type: none;
   padding: 10px;
-  text-decoration: none;
 }
 
 /* --------AuthedUser----------- */
@@ -168,4 +171,30 @@ select {
   min-width: 48%;
   border: 1px solid turquoise;
   border-radius: 20px 20px 0 0;
+}
+
+/* --------question----------*/
+
+.questions {
+  min-width: 100%;
+}
+
+.question li {
+  width: 98%;
+  margin:auto;
+  margin-bottom: 5px;
+  border: 1px solid lightgray;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.options span {
+  width: 48%;
+  margin: 2px 2px 2px 2px;
+  border: .5px solid lightgrey;
 }
