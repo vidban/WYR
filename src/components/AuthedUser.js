@@ -39,7 +39,7 @@ class AuthedUser extends Component {
                         <div className={activeTab === 'UnansweredQs' ? 'tab active' : 'tab'} onClick={this.toggleTabs}>
                             <h2>Unanswered Polls</h2>
                         </div>
-                        <div className = {activeTab === 'AnsweredQs' ? 'tab active' : 'tab'} onClick={this.toggleTabs} onClick={this.toggleTabs}>
+                        <div className = {activeTab === 'AnsweredQs' ? 'tab active' : 'tab'} onClick={this.toggleTabs}>
                             <h2>Answered Polls</h2>
                         </div>
                 </div>

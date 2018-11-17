@@ -1,4 +1,5 @@
 export const RECEIVE_USERS =  'RECEIVE_USERS'
+export const ADD_USER_ANSWER = 'ADD_USER_ANSWER'
 
 export function receiveUsers(users) {
     return {
@@ -6,3 +7,13 @@ export function receiveUsers(users) {
         users,
     }
 }
+
+export function addUserAnswer (authedUser, id, answer){
+    return {
+        type: ADD_USER_ANSWER,
+        authedUser,
+        id,
+        answer
+    }
+}
+

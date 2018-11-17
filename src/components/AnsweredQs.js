@@ -1,27 +1,43 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class AnsweredQs extends Component {
+    state = {
+        option1: false
+    }
     // checks if the autherized user answered that particular question
     checkUser(id,first,second) {
         return (first.indexOf(id) !== -1 || second.indexOf(id) !== -1)
     }
 
     render() {
-        const { authedUser, questions,questionIds } = this.props
+        const { users, authedUser, questions, questionIds } = this.props
         return (
             <div className="question">
                 <ul >
                     {questionIds.map((id) => (
                         (this.checkUser(authedUser.id,questions[id].optionOne.votes,questions[id].optionTwo.votes) === true) && (
                             <li key={id}>
-                                <h4 >{`Asked by ${questions[id].author}`}</h4>
-                                {/* <img src={authedUser.avatarURL} alt="authorized user" /> */}
-                                <h3>Would you rather</h3>
-                                <div className="options">
-                                    <span>{questions[id].optionOne.text}</span>
-                                    <span>{questions[id].optionTwo.text}</span>
+                                <div className="question-askedby">
+                                    <div>
+                                        <h4>{`Asked by ${questions[id].author}`}</h4>
+                                        <img className="question-image" src={users[questions[id].author].avatarURL} alt="authorized user" />
+                                    </div>
                                 </div>
+                                <div className="question-actual">
+                                    <div>
+                                        <h2>Would you rather</h2>
+                                        <div className="options">
+                                            <h3 className={questions[id].optionOne.votes.includes(authedUser.id) ? 'active' : ''}>{questions[id].optionOne.text}</h3>
+                                            <h3 className={questions[id].optionTwo.votes.includes(authedUser.id) ? 'active' : ''}>{questions[id].optionTwo.text}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <Link to={`/question/${id}`} style={{textDecoration:`none`, color:`black`}} >
+                                <div className="question-view">
+                                    <span>View Question</span>
+                                </div></Link>
                             </li>
                         )
                     ))}
@@ -31,11 +47,13 @@ class AnsweredQs extends Component {
     }
 }
 
-function mapStateToProps({authedUser, questions}) {
+function mapStateToProps({users,authedUser, questions}) {
     return {
+        users,
         authedUser,
         questions,
         questionIds: Object.keys(questions)
+                    .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
     }
 }
 

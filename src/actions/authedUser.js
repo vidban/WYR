@@ -18,11 +18,6 @@ export function handleAddAuthedUser(name) {
     }
 }
 
-export function removeAuthedUser () {
-    return {
-        type: REMOVE_AUTHED_USER,
-    }
-}
 
 
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class UnansweredQs extends Component {
     // checks if the autherized user answered that particular question
@@ -8,20 +9,36 @@ class UnansweredQs extends Component {
     }
 
     render() {
-        const { authedUser, questions,questionIds } = this.props
+        const { users, authedUser, questions, questionIds } = this.props
         return (
             <div className="question">
                 <ul >
                     {questionIds.map((id) => (
                         this.checkUser(authedUser.id,questions[id].optionOne.votes,questions[id].optionTwo.votes) && (
                             <li key={id}>
-                                <h4 >{`Asked by ${questions[id].author}`}</h4>
-                                {/* <img src={authedUser.avatarURL} alt="authorized user" /> */}
-                                <h3>Would you rather</h3>
-                                <div className="options">
-                                    <span>{questions[id].optionOne.text}</span>
-                                    <span>{questions[id].optionTwo.text}</span>
+                                <div className="question-askedby">
+                                    <div>
+                                        <h4>{`Asked by ${questions[id].author}`}</h4>
+                                        <img className="question-image" src={users[questions[id].author].avatarURL} alt="authorized user" />
+                                    </div>
                                 </div>
+                                <div className="question-actual">
+                                    <div>
+                                        <h2>Would you rather</h2>
+                                        <div className="options">
+                                            <h3>{questions[id].optionOne.text}</h3>
+                                            <h3>{questions[id].optionTwo.text}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <Link
+                                to={`/questions/${id}`}
+                                style={{textDecoration:`none`, color:`black`}}
+                                >
+                                    <div className="question-view">
+                                        <span>View Question</span>
+                                    </div>
+                                </Link>
                             </li>
                         )
                     ))}
@@ -31,8 +48,9 @@ class UnansweredQs extends Component {
     }
 }
 
-function mapStateToProps({authedUser, questions}) {
+function mapStateToProps({users, authedUser, questions}) {
     return {
+        users,
         authedUser,
         questions,
         questionIds: Object.keys(questions)
