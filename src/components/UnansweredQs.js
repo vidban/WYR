@@ -54,6 +54,7 @@ function mapStateToProps({users, authedUser, questions}) {
         authedUser,
         questions,
         questionIds: Object.keys(questions)
+        .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
     }
 }
 

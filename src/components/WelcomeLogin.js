@@ -22,12 +22,11 @@ class WelcomeLogin extends Component {
         e.preventDefault()
         const { name } = this.state
         const { dispatch } = this.props
+            dispatch(handleAddAuthedUser(name))
 
-        dispatch(handleAddAuthedUser(name))
-
-        this.setState(() => ({
-            loggedIn: true
-        }))
+            this.setState(() => ({
+                loggedIn: true
+            }))
     }
 
     render(){
@@ -41,21 +40,24 @@ class WelcomeLogin extends Component {
             <div className="welcome-box">
                 <header className="welcome-header">
                     <h2>Welcome to "Would You Rather"</h2>
-                    <h3>Please Login to Begin</h3>
+                    <h4>Please Login to Begin</h4>
                 </header>
-                <section>
+                <main className="welcome-main">
                     <img src={logo} className="App-logo" alt="man thinking" />
                     <h1>Sign in</h1>
                     <form onSubmit={this.handleSubmit}>
                         <select ref = 'username' onChange ={this.handleChange}>
-                            <option>Choose an avatar</option>
+                            <option className="choose">Choose an avatar</option>
                             {allUsers.map((user) => (
                                 <option key={user} value ={user}>{user}</option>
                             ))}
                         </select>
-                        <button type="submit" className="login" >Enter</button>
+                        <button
+                            type="submit"
+                            className="submit"
+                            disabled={!this.state.name} >Enter</button>
                     </form>
-                </section>
+                </main>
             </div>
         )
     }
