@@ -267,11 +267,47 @@ li {
 
 /* ----------New Question---------- */
 
-.new-container {
+.new-question {
   width: 80%;
-
+  border: 2px solid gray;
+  margin: auto;
+  margin-top: 10%;
 }
 
+.new-header h2 {
+  max-width: 100%;
+  padding: 3%;
+  color: rgb(36, 128, 128);
+  font-size: 1.5em;
+  border-bottom: 1px solid rgb(11, 61, 61);
+}
+
+.new-question .main {
+  width: 90%;
+  border: 1px solid lightgray;
+  margin: auto;
+  font-size: 1.5em;
+  padding: 2%;
+}
+
+.new-question input {
+  display: block;
+  margin: auto;
+  width: 80%;
+  font-size: 1.1em;
+  height:auto;
+}
+
+.new-question .submit {
+  width: 50%;
+  font-size: 1.1em;
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 1%;
+  background-color: rgb(36, 128, 128);
+  color: white;
+}
 
 /* ----------LeaderBoard---------- */
 

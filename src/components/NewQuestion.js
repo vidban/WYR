@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleSaveQuestion } from '../actions/shared'
 import Nav from './Nav'
+import { Redirect } from 'react-router-dom'
 
 class NewQuestion extends Component {
 
     state = {
         optionOne : '',
-        optionTwo : ''
+        optionTwo : '',
+        toHome: false,
     }
 
     handleChange = (e) => {
@@ -31,18 +33,23 @@ class NewQuestion extends Component {
 
         this.setState(() => ({
             optionOne:'',
-            optionTwo:''
+            optionTwo:'',
+            toHome: true
         }))
     }
 
     render() {
-        const { optionOne,optionTwo } = this.state
+        const { optionOne,optionTwo, toHome } = this.state
+
+        if (toHome === true) {
+            return <Redirect to='/home' />
+        }
         return(
             <div className='new-container'>
                 <Nav />
                 <div className='new-question'>
                     <div className='new-header'>
-                        <h2> Create New Question </h2>
+                        <h2> Create A New Question </h2>
                     </div>
                     <form onSubmit={this.handleSubmit}>
                         <div className='main'>
@@ -65,6 +72,7 @@ class NewQuestion extends Component {
                                 required/>
                         </div>
                         <button
+                            className="submit"
                             type="submit"
                             disabled={optionOne === '' || optionTwo === ''}>Submit</button>
                     </form>
