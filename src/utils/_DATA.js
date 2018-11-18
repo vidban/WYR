@@ -147,8 +147,8 @@ export function _getAuthedUser() {
 function formatQuestion ({ optionOneText, optionTwoText, author }) {
   return {
     id: generateUID(),
-    timestamp: Date.now(),
     author,
+    timestamp: Date.now(),
     optionOne: {
       votes: [],
       text: optionOneText,
@@ -187,7 +187,7 @@ export function _saveQuestion (question) {
           questions: users[authedUser].questions.concat([formattedQuestion.id])
         }
       }
-
+      console.log('formattedQuestion', formattedQuestion)
       res(formattedQuestion)
     }, 1000)
   })

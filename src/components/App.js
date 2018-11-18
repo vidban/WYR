@@ -7,6 +7,7 @@ import Home from './Home'
 import LoadingBar from 'react-redux-loading'
 import QuestionDetail from './QuestionDetail'
 import QuestionStats from './QuestionStats'
+import NewQuestion from './NewQuestion'
 
 class App extends Component {
   componentDidMount() {
@@ -22,9 +23,10 @@ class App extends Component {
               ? null
               : <div>
                   <Route path = '/' exact component= {WelcomeLogin} />
-                  <Route path = '/home/' component = {Home} />
+                  <Route path = '/home' component = {Home} />
                   <Route path = '/questions/:id' component = {QuestionDetail} />
                   <Route path = '/question/:id' component= {QuestionStats} />
+                  <Route path = '/new' component = {NewQuestion} />
                 </div>
           }
           </div>

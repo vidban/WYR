@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleGetQuestions } from '../actions/questions'
+import { handleGetQuestions } from '../actions/shared'
 import AnsweredQs from './AnsweredQs'
 import UnansweredQs from './UnansweredQs'
 
