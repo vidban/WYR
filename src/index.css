@@ -249,4 +249,61 @@ li {
   color: white;
 }
 
+/* ----------LeaderBoard---------- */
+
+.leaderboard {
+  width: 70%;
+  margin: auto;
+}
+
+.each-user {
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  border: 2px solid lightgray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.leaderboard section {
+  padding: 10px;
+  min-height: 0;
+}
+
+.leaderboard .image-section, .score-section {
+  flex: 1;
+}
+
+.leaderboard .main-section {
+  flex: 2;
+}
+
+.leaderboard section {
+  border-right: 2px solid lightgray;
+  justify-content: stretch;
+}
+
+.score-section {
+  border: none !important;
+}
+
+.leaderboard img {
+    max-width: 150px;
+}
+
+
+.leaderboard .main-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.leaderboard h3 {
+  color: rgb(29, 26, 26);
+}
+
+
+
 

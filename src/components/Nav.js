@@ -28,7 +28,13 @@ class Nav extends Component {
                     </li>
 
                     <li>
-                    <NavLink to='/' exact style={{textDecoration: 'none'}}>
+                    <NavLink to='/leaderboard' style={{textDecoration: 'none'}}>
+                        <h2>LeaderBoard</h2>
+                    </NavLink>
+                    </li>
+
+                    <li>
+                    <NavLink to='/ ' exact style={{textDecoration: 'none'}}>
                         <h2>Logout</h2>
                     </NavLink>
                     </li>
