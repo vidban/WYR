@@ -2,9 +2,15 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
+import { removeAuthedUser } from '../actions/authedUser'
 
 
 class Nav extends Component {
+
+    handleClick = () => {
+        const { dispatch } = this.props
+        dispatch(removeAuthedUser('none'))
+    }
     render() {
         const {authedUser} = this.props
 
@@ -17,7 +23,7 @@ class Nav extends Component {
 
                     <li>
                     <NavLink to='/home' style={{textDecoration: 'none'}}>
-                        <h1>Would You Rather</h1>
+                        <h1 className="app-logo">Would You Rather</h1>
                     </NavLink>
                     </li>
 
@@ -34,9 +40,7 @@ class Nav extends Component {
                     </li>
 
                     <li>
-                    <NavLink to='/ ' exact style={{textDecoration: 'none'}}>
-                        <h2>Logout</h2>
-                    </NavLink>
+                        <h2 onClick={this.handleClick}>Logout</h2>
                     </li>
 
                 </ul>

@@ -10,6 +10,13 @@ export function addAuthedUser (name) {
     }
 }
 
+export function removeAuthedUser(name) {
+        return {
+            type: REMOVE_AUTHED_USER,
+            name
+        }
+}
+
 export function handleAddAuthedUser(name) {
     return (dispatch) => {
 
