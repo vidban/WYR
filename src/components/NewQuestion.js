@@ -38,7 +38,7 @@ class NewQuestion extends Component {
     render() {
         const { optionOne,optionTwo } = this.state
         return(
-            <div className='container'>
+            <div className='new-container'>
                 <Nav />
                 <div className='new-question'>
                     <div className='new-header'>

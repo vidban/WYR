@@ -123,128 +123,115 @@ ul {
 li {
   list-style-type: none;
   text-decoration: none;
+  padding: 10px;
 }
 .nav h1,h2{
   color: white;
 }
 
-.nav img {
-  max-width: 100px;
-  max-height: 100px;
-  border: 2px solid white;
-  border-radius: 10px;
-  background-color: seashell;
-  margin: 5px;
-}
-
-.nav li {
-  padding: 10px;
-}
 
 /* --------AuthedUser----------- */
 
-.info {
+.authed-user {
   max-width: 80%;
   border: 2px solid grey;
   margin:auto;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.info h2,h3{
-  color: seagreen
+.authed-user h2,h3{
+  color: rgb(11, 61, 61)
 
 }
 
-.info .authed-user {
+.authed-user .authed-user-info {
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-decoration: none;
   color: white;
-  border-bottom: 2px solid gray
+  border-bottom: 2px solid gray;
 }
 
-.authed-user img{
-  max-width: 30%;
+.authed-user-info img{
+  max-width: 20%;
 }
 
-.polls {
+.authed-user-polls {
   min-width: 100%;
+  margin-top: 10px;
   padding-top:5px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   /* border-bottom: 2px solid seagreen; */
 }
 
-.tab {
+.authed-user-polls .tab {
   margin: 0;
   min-width: 48%;
-  border: 1px solid seagreen;
-  border-radius: 20px 20px 0 0;
+  border: 1px solid rgb(11, 61, 61);
+  border-radius: 25px 25px 0 0;
 }
 
-.active {
-  background-color: seagreen;
-  border: 1px solid  seagreen;
+.authed-user-polls .active {
+  background-color: rgb(36, 128, 128);
+  transform: scaleY(1.2);
 }
 
-.active h2 {
+.authed-user-polls .active h2 {
   color: white;
 }
 
 /* --------question----------*/
 
-.questions {
-  min-width: 99%;
-  border: 2px solid seagreen;
+.question {
+  max-width: 96%;
+  border:5px solid rgb(36, 128, 128);
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+.question ul{
+  width: 100%;
 }
 
 .question li {
-  width: 98%;
-  margin:auto;
+  width: 90%;
+  margin: auto;
   margin-bottom: 5px;
   border: 1px solid lightgray;
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: row;
-  justify-content: center;
-  align-items: center; */
 }
 
 .question-askedby {
+  flex: 1;
   width: 23%;
   padding: 10px;
-}
-
-.question-askedby div{
   border-right: 1px solid lightgrey;
 }
 
 .question-askedby h4 {
-  margin: 0;
+  color: black;
 }
 
 .question-image {
   max-width: 50%;
+  margin: 5px;
 }
 
 .question-actual {
+  flex: 2;
   padding:5px;
-  width: 70%;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.question-view {
-  width: 100%;
-  border: 1px dotted seagreen;
-  margin: 5px;
+  justify-content: space-between;
 }
 
 .options {
@@ -255,20 +242,43 @@ li {
 }
 
 .options h3 {
-  width: 48%;
+  min-width: 48%;
+  height: auto;
+  padding-top: 5px;
   margin: 2px 2px 2px 2px;
   border: .5px solid lightgrey;
+  color: rgb(11, 61, 61);
 }
 
 .options .active {
+  background-color: rgb(36, 128, 128);
   color: white;
 }
+
+.question-view {
+  width: 90%;
+  margin: auto;
+  border: 2px solid rgb(36, 128, 128);
+  height: 30px;
+  padding-top: 5px;
+  font-size: 1.2em;
+  margin-top: 10%;
+}
+
+/* ----------New Question---------- */
+
+.new-container {
+  width: 80%;
+
+}
+
 
 /* ----------LeaderBoard---------- */
 
 .leaderboard {
   width: 70%;
   margin: auto;
+  margin-top: 10%;
 }
 
 .each-user {
@@ -278,7 +288,7 @@ li {
   border: 2px solid lightgray;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
 }
@@ -286,6 +296,8 @@ li {
 .leaderboard section {
   padding: 10px;
   min-height: 0;
+  border-right: 2px solid lightgray;
+  justify-content: center;
 }
 
 .leaderboard .image-section, .score-section {
@@ -294,11 +306,6 @@ li {
 
 .leaderboard .main-section {
   flex: 2;
-}
-
-.leaderboard section {
-  border-right: 2px solid lightgray;
-  justify-content: stretch;
 }
 
 .score-section {
@@ -313,6 +320,14 @@ li {
 .leaderboard .main-info {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.leaderboard h1 {
+  color: rgb(36, 128, 128);
+  font-size: 1.7em;
+  margin: 0;
 }
 
 .leaderboard h3 {

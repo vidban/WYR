@@ -17,10 +17,8 @@ class UnansweredQs extends Component {
                         this.checkUser(authedUser.id,questions[id].optionOne.votes,questions[id].optionTwo.votes) && (
                             <li key={id}>
                                 <div className="question-askedby">
-                                    <div>
-                                        <h4>{`Asked by ${questions[id].author}`}</h4>
-                                        <img className="question-image" src={users[questions[id].author].avatarURL} alt="authorized user" />
-                                    </div>
+                                <h4>{`Asked by ${questions[id].author === authedUser.id ? "you" : questions[id].author }`}</h4>
+                                    <img className="question-image" src={users[questions[id].author].avatarURL} alt="authorized user" />
                                 </div>
                                 <div className="question-actual">
                                     <div>
@@ -30,15 +28,18 @@ class UnansweredQs extends Component {
                                             <h3>{questions[id].optionTwo.text}</h3>
                                         </div>
                                     </div>
-                                </div>
-                                <Link
-                                to={`/questions/${id}`}
-                                style={{textDecoration:`none`, color:`black`}}
-                                >
                                     <div className="question-view">
-                                        <span>View Question</span>
+                                        <Link
+                                            to={`/questions/${id}`}
+                                            style={{textDecoration:`none`, color:`black`}}
+                                            >
+                                                <div >
+                                                    <span>View Question</span>
+                                                </div>
+                                        </Link>
                                     </div>
-                                </Link>
+                                </div>
+
                             </li>
                         )
                     ))}

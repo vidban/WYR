@@ -28,14 +28,14 @@ class AuthedUser extends Component {
         const { activeTab } = this.state
 
         return (
-            <main className="info">
-                <div className='authed-user'>
+            <main className="authed-user">
+                <div className='authed-user-info'>
                     <h3>You are logged in as:</h3>
                     <img src={authedUser.avatarURL} alt="" />
                     <h2>{authedUser.name}</h2>
                 </div>
 
-                <div className="polls">
+                <div className="authed-user-polls">
                         <div className={activeTab === 'UnansweredQs' ? 'tab active' : 'tab'} onClick={this.toggleTabs}>
                             <h2>Unanswered Polls</h2>
                         </div>
@@ -43,7 +43,7 @@ class AuthedUser extends Component {
                             <h2>Answered Polls</h2>
                         </div>
                 </div>
-                <div className="questions">
+                <div className="authed-user-questions">
                     {activeTab === 'AnsweredQs' &&
                         <AnsweredQs />
                     }

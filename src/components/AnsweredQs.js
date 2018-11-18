@@ -13,6 +13,7 @@ class AnsweredQs extends Component {
 
     render() {
         const { users, authedUser, questions, questionIds } = this.props
+        console.log(authedUser, questions)
         return (
             <div className="question">
                 <ul >
@@ -20,10 +21,8 @@ class AnsweredQs extends Component {
                         (this.checkUser(authedUser.id,questions[id].optionOne.votes,questions[id].optionTwo.votes) === true) && (
                             <li key={id}>
                                 <div className="question-askedby">
-                                    <div>
-                                        <h4>{`Asked by ${questions[id].author}`}</h4>
-                                        <img className="question-image" src={users[questions[id].author].avatarURL} alt="authorized user" />
-                                    </div>
+                                    <h4>{`Asked by ${questions[id].author === authedUser.id ? "you" : questions[id].author }`}</h4>
+                                    <img className="question-image" src={users[questions[id].author].avatarURL} alt="authorized user" />
                                 </div>
                                 <div className="question-actual">
                                     <div>
@@ -33,11 +32,15 @@ class AnsweredQs extends Component {
                                             <h3 className={questions[id].optionTwo.votes.includes(authedUser.id) ? 'active' : ''}>{questions[id].optionTwo.text}</h3>
                                         </div>
                                     </div>
+                                    <div className="question-view">
+                                        <Link to={`/question/${id}`} style={{textDecoration:`none`, color:`black`}} >
+                                            <div >
+                                                <span>View Question</span>
+                                            </div>
+                                        </Link>
+                                    </div>
                                 </div>
-                                <Link to={`/question/${id}`} style={{textDecoration:`none`, color:`black`}} >
-                                <div className="question-view">
-                                    <span>View Question</span>
-                                </div></Link>
+
                             </li>
                         )
                     ))}

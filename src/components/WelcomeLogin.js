@@ -43,7 +43,7 @@ class WelcomeLogin extends Component {
                     <h4>Please Login to Begin</h4>
                 </header>
                 <main className="welcome-main">
-                    <img src={logo} className="App-logo" alt="man thinking" />
+                    <img src={logo} className="App-logo" alt="moana water symbol" />
                     <h1>Sign in</h1>
                     <form onSubmit={this.handleSubmit}>
                         <select ref = 'username' onChange ={this.handleChange}>
