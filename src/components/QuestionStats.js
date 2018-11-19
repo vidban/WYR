@@ -35,7 +35,7 @@ class QuestionStats extends Component {
                             </div>
                             <div className='option' style={{width: `100%`}}>
                                 <h3 style={{width: `100%`, border:`none`}}>{`Would you rather ${question.optionTwo.text}`}</h3>
-                                <div style={{minWidth: `100%`, minHeight: `30px`, backgroundColor:`seashell` }}>
+                                <div style={{minWidth: `100%`, minHeight: `30px`, backgroundColor:`seashell`, border: `1px solid gray` }}>
                                     <div className="progress" style={optionTwoLen > 0  ? {maxWidth:`${optionTwoScore}%`, minHeight:`30px`, backgroundColor:`rgb(36, 128, 128)`} : {backgroundColor:`inherit`}}></div>
                                 </div>
                                 <span>{`Showing ${optionTwoLen} of ${totalVotes} votes`}</span>
