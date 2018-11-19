@@ -23,16 +23,16 @@ class QuestionStats extends Component {
                         <div className="options" style={{flexDirection: `inherit`, alignItems: `left`}}>
                             <div className='option' style={{width: `100%`}}>
                                 <h3 style={{width: `100%`, border:`none`}}>{`Would you rather ${question.optionOne.text}`}</h3>
-                                <div style={{minWidth: `100%`, minHeight: `30px`, backgroundColor:`seaGreen` }}>
-                                    <div className="progress" style={optionOneLen > 0  ? {maxWidth:`${optionOneScore}%`, minHeight:`30px`, backgroundColor:`turquoise`} : {backgroundColor:`inherit`}}></div>
+                                <div style={{minWidth: `100%`, minHeight: `30px`, backgroundColor:`seashell`, border: `1px solid gray` }}>
+                                    <div className="progress" style={optionOneLen > 0  ? {maxWidth:`${optionOneScore}%`, minHeight:`30px`, backgroundColor:`rgb(36, 128, 128)`} : {backgroundColor:`inherit`}}></div>
                                 </div>
                                 <span>{`Showing ${optionOneLen} of ${totalVotes} votes`}</span>
                                 <span style={{display:`block`}}>{`${optionOneScore}% users selected this option`}</span>
                             </div>
                             <div className='option' style={{width: `100%`}}>
                                 <h3 style={{width: `100%`, border:`none`}}>{`Would you rather ${question.optionTwo.text}`}</h3>
-                                <div style={{minWidth: `100%`, minHeight: `30px`, backgroundColor:`seaGreen` }}>
-                                    <div className="progress" style={optionTwoLen > 0  ? {maxWidth:`${optionTwoScore}%`, minHeight:`30px`, backgroundColor:`turquoise`} : {backgroundColor:`inherit`}}></div>
+                                <div style={{minWidth: `100%`, minHeight: `30px`, backgroundColor:`seashell` }}>
+                                    <div className="progress" style={optionTwoLen > 0  ? {maxWidth:`${optionTwoScore}%`, minHeight:`30px`, backgroundColor:`rgb(36, 128, 128)`} : {backgroundColor:`inherit`}}></div>
                                 </div>
                                 <span>{`Showing ${optionTwoLen} of ${totalVotes} votes`}</span>
                                 <span style={{display:`block`}}>{`${optionTwoScore}% users selected this option`}</span>

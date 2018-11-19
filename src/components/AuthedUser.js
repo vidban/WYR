@@ -7,7 +7,7 @@ import UnansweredQs from './UnansweredQs'
 
 class AuthedUser extends Component {
     state = {
-        activeTab: 'AnsweredQs',
+        activeTab: 'UnansweredQs',
     }
 
     componentDidMount() {
@@ -15,11 +15,11 @@ class AuthedUser extends Component {
     }
 
     toggleTabs = (e) => {
-        const ans = 'AnsweredQs'
+        const ans = 'UnansweredQs'
         const { activeTab } = this.state
 
         this.setState(() => ({
-                activeTab: activeTab === ans ? 'UnansweredQs' : ans
+                activeTab: activeTab === ans ? 'AnsweredQs' : ans
         }))
     }
 
@@ -34,23 +34,25 @@ class AuthedUser extends Component {
                     <img src={authedUser.avatarURL} alt="" />
                     <h2>{authedUser.name}</h2>
                 </div>
+                <div className="authed-user-poll-tab">
+                    <div className="authed-user-polls">
+                            <div className={activeTab === 'UnansweredQs' ? 'tab active' : 'tab'} onClick={this.toggleTabs}>
+                                <h2>Unanswered Polls</h2>
+                            </div>
+                            <div className = {activeTab === 'AnsweredQs' ? 'tab active' : 'tab'} onClick={this.toggleTabs}>
+                                <h2>Answered Polls</h2>
+                            </div>
+                    </div>
+                    <div className="authed-user-questions">
+                        {activeTab === 'AnsweredQs' &&
+                            <AnsweredQs />
+                        }
+                        {activeTab === 'UnansweredQs' &&
+                            <UnansweredQs />
+                        }
+                    </div>
+                </div>
 
-                <div className="authed-user-polls">
-                        <div className={activeTab === 'UnansweredQs' ? 'tab active' : 'tab'} onClick={this.toggleTabs}>
-                            <h2>Unanswered Polls</h2>
-                        </div>
-                        <div className = {activeTab === 'AnsweredQs' ? 'tab active' : 'tab'} onClick={this.toggleTabs}>
-                            <h2>Answered Polls</h2>
-                        </div>
-                </div>
-                <div className="authed-user-questions">
-                    {activeTab === 'AnsweredQs' &&
-                        <AnsweredQs />
-                    }
-                    {activeTab === 'UnansweredQs' &&
-                        <UnansweredQs />
-                    }
-                </div>
             </main>
         )
     }

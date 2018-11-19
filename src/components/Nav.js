@@ -20,15 +20,17 @@ class Nav extends Component {
         return (
             <nav className='nav'>
                 <ul>
-
+                    <li>
+                        <h1 className="app-logo">Would You Rather</h1>
+                    </li>
                     <li>
                     <NavLink to='/home' style={{textDecoration: 'none'}}>
-                        <h1 className="app-logo">Would You Rather</h1>
+                        <h2>Home</h2>
                     </NavLink>
                     </li>
 
                     <li>
-                    <NavLink to='/new' style={{textDecoration: 'none'}}>
+                    <NavLink to='/add' style={{textDecoration: 'none'}}>
                         <h2>New Question</h2>
                     </NavLink>
                     </li>

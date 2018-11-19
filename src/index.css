@@ -51,7 +51,7 @@ code {
   align-items: center;
   border: 2px solid lightgray;
   box-shadow: 2px 5px gray;
-  margin-top: 10%;
+  margin-top: 3%;
   padding: 20px;
 }
 
@@ -138,6 +138,16 @@ li {
   margin:auto;
   margin-top: 10px;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.authed-user-poll-tab {
+  flex: 3;
+  margin:10px;
+  margin-top: 10px;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -149,17 +159,17 @@ li {
 }
 
 .authed-user .authed-user-info {
-  width: 100%;
+  flex: 1;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
   text-decoration: none;
   color: white;
-  border-bottom: 2px solid gray;
+  /* border-bottom: 2px solid gray; */
 }
 
 .authed-user-info img{
-  max-width: 20%;
+  max-width: 50%;
 }
 
 .authed-user-polls {
@@ -262,8 +272,12 @@ li {
   height: 30px;
   padding-top: 5px;
   font-size: 1.2em;
-  margin-top: 10%;
+  margin-top: 3%;
 }
+
+/* ----------Question Details------ */
+
+/* Move styles here */
 
 /* ----------New Question---------- */
 
@@ -271,7 +285,7 @@ li {
   width: 80%;
   border: 2px solid gray;
   margin: auto;
-  margin-top: 10%;
+  margin-top: 3%;
 }
 
 .new-header h2 {
@@ -314,7 +328,7 @@ li {
 .leaderboard {
   width: 70%;
   margin: auto;
-  margin-top: 10%;
+  margin-top: 3%;
 }
 
 .each-user {

@@ -34,7 +34,7 @@ class LeaderBoard extends Component {
                                         <h3>{info[userId].totalA}</h3>
                                     </div>
                                     <div className="main-info">
-                                        <h3>Created Questions -</h3>
+                                        <h3>Asked Questions -</h3>
                                         <h3>{info[userId].totalQ}</h3>
                                     </div>
                                 </div>
