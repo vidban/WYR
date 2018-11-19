@@ -39,7 +39,7 @@ class QuestionDetail extends Component {
         const { toHome } = this.state
         console.log(question)
 
-        if (toHome === true) {
+        if (toHome === true || authedUser === 'none') {
             return <Redirect to='/home' />
         }
         return(

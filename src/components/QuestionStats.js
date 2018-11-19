@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Nav from './Nav'
+import { Redirect } from 'react-router-dom'
+
 
 class QuestionStats extends Component {
 
     render() {
-        const { users, question, optionOneLen, optionTwoLen, totalVotes, optionOneScore, optionTwoScore } = this.props
-
+        const { authedUser, users, question, optionOneLen, optionTwoLen, totalVotes, optionOneScore, optionTwoScore } = this.props
+        if (authedUser === 'none') {
+            return <Redirect to='/home' />
+        }
         return (
             <div>
                 <Nav />
@@ -45,7 +49,11 @@ class QuestionStats extends Component {
     }
 }
 
-function mapStateToProps ({users,questions}, { match }) {
+function mapStateToProps ({users,questions,authedUser}, { match }) {
+    if (authedUser === 'none') {
+        return {authedUser}
+    }
+    console.log(authedUser)
     const question = questions[match.params.id]
     let optionOneLen = question.optionOne.votes.length
     let optionTwoLen = question.optionTwo.votes.length
@@ -56,6 +64,7 @@ function mapStateToProps ({users,questions}, { match }) {
 
     const id = match.params.id
     return {
+        authedUser,
         users,
         questions,
         question,

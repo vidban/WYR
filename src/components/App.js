@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import WelcomeLogin from './WelcomeLogin'
@@ -9,6 +9,7 @@ import QuestionDetail from './QuestionDetail'
 import QuestionStats from './QuestionStats'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
+import Error from './Error'
 
 class App extends Component {
   componentDidMount() {
@@ -22,19 +23,20 @@ class App extends Component {
           <div className='container'>
           {this.props.loading === true
               ? null
-              : <div>
+              : <Switch> {/*To render the first path that matches*/}
                   <Route path = '/' exact component= {WelcomeLogin} />
-                  <Route path = '/home' component = {Home} />
+                  <Route path = '/home' exact component = {Home} />
                   <Route path = '/questions/:id' component = {QuestionDetail} />
                   <Route path = '/question/:id' component= {QuestionStats} />
-                  <Route path = '/add' component = {NewQuestion} />
-                  <Route path = '/leaderboard' component = {LeaderBoard} />
-                </div>
+                  <Route path = '/add' exact component = {NewQuestion} />
+                  <Route path = '/leaderboard' exact component = {LeaderBoard} />
+                  <Route component = {Error} /> {/* TODO */}
+                </Switch>
           }
           </div>
         </Fragment>
       </Router>
-    );
+    )
   }
 }
 
