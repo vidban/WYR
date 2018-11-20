@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { handleSaveQuestionAnswer } from '../actions/shared'
 import Nav from './Nav'
 import { Redirect } from 'react-router-dom'
+import Error from './Error'
 
 
 
@@ -34,6 +35,10 @@ class QuestionDetail extends Component {
     }
 
     render() {
+        if (this.props.isError) {
+            console.log('there is an error')
+            return <Error />
+        }
         const { authedUser, users, question, id } = this.props
         const { toStats } = this.state
         console.log(this.props)
@@ -88,6 +93,14 @@ class QuestionDetail extends Component {
 
 function mapStateToProps ({authedUser, users, questions}, { match }) {
     const question = questions[match.params.id]
+
+    let isError
+
+    if (question === undefined){
+        isError = true
+        return {isError}
+    }
+
     const id = match.params.id
     return {
         authedUser,
