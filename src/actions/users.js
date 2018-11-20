@@ -19,7 +19,6 @@ export function addUserAnswer (authedUser, id, answer){
 }
 
 export function addUserQuestion(question) {
-    console.log(question)
     return {
         type: ADD_USER_QUESTION,
         question: question

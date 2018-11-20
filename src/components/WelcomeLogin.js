@@ -7,12 +7,11 @@ import { Redirect } from 'react-router-dom'
 class WelcomeLogin extends Component {
     state = {
         name: '',
-        loggedIn: false,
+        redirect: false,
     }
 
     handleChange = () => {
         const name = this.refs.username.value
-        console.log(name)
         this.setState(() => ({
             name
         }))
@@ -21,19 +20,23 @@ class WelcomeLogin extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const { name } = this.state
-        const { dispatch } = this.props
-            dispatch(handleAddAuthedUser(name))
+        const { dispatch,authedUser } = this.props
 
+        dispatch(handleAddAuthedUser(name))
+        if (authedUser.id) {
             this.setState(() => ({
-                loggedIn: true
+                redirect: true
             }))
+        }
     }
 
     render(){
         const { allUsers, authedUser } = this.props
+        const {from} = this.props.location.state || {from: {pathname: '/home'}}
+        const { redirect } = this.state
 
-        if (authedUser.id) {
-            return <Redirect to = '/home' />
+        if (redirect || authedUser.id) {
+            return <Redirect to = {from} />
         }
 
         return (
@@ -67,7 +70,7 @@ function mapStateToProps({users, authedUser, questions}) {
     return {
         allUsers: Object.keys(users),
         authedUser,
-        questions
+        questions,
     }
 }
 

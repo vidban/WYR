@@ -11,18 +11,16 @@ export function getInitialData () {
   return Promise.all([
     _getUsers(),
     _getAuthedUser(),
-    ]).then(([users,authedUser]) => ({
+    _getQuestions(),
+    ]).then(([users,authedUser,questions]) => ({
     users,
     authedUser,
+    questions
     }))
 }
 
 export function setAuthedUser(name){
   return _setAuthedUser(name)
-}
-
-export function getAllQuestions() {
-  return _getQuestions()
 }
 
 export function saveQuestion(question) {

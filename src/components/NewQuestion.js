@@ -15,7 +15,6 @@ class NewQuestion extends Component {
     handleChange = (e) => {
         const text = e.target.value
         const id = e.target.id
-        console.log(e.target.value)
 
 
         this.setState(() => ({

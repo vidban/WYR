@@ -26,7 +26,6 @@ class QuestionDetail extends Component {
 
         const { selected } = this.state
         const { dispatch, authedUser, id } = this.props
-        console.log(authedUser.id, id)
         dispatch(handleSaveQuestionAnswer(authedUser.id, id, selected))
 
         this.setState(() => ({
@@ -37,9 +36,8 @@ class QuestionDetail extends Component {
     render() {
         const { authedUser, users, question } = this.props
         const { toHome } = this.state
-        console.log(question)
 
-        if (toHome === true || authedUser === 'none') {
+        if (toHome === true || !authedUser.id) {
             return <Redirect to='/home' />
         }
         return(
@@ -82,7 +80,6 @@ class QuestionDetail extends Component {
 }
 
 function mapStateToProps ({authedUser, users, questions}, { match }) {
-    console.log(questions)
     const question = questions[match.params.id]
     const id = match.params.id
     return {

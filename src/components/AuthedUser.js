@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleGetQuestions } from '../actions/shared'
+import { Redirect } from 'react-router-dom'
 import AnsweredQs from './AnsweredQs'
 import UnansweredQs from './UnansweredQs'
 
@@ -8,10 +8,6 @@ import UnansweredQs from './UnansweredQs'
 class AuthedUser extends Component {
     state = {
         activeTab: 'UnansweredQs',
-    }
-
-    componentDidMount() {
-        this.props.dispatch(handleGetQuestions())
     }
 
     toggleTabs = (e) => {
@@ -26,7 +22,9 @@ class AuthedUser extends Component {
     render() {
         const { authedUser } = this.props
         const { activeTab } = this.state
-
+        if (!authedUser.id){
+            return <Redirect to="/" />
+        }
         return (
             <main className="authed-user">
                 <div className='authed-user-info'>

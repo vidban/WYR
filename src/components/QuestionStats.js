@@ -8,7 +8,7 @@ class QuestionStats extends Component {
 
     render() {
         const { authedUser, users, question, optionOneLen, optionTwoLen, totalVotes, optionOneScore, optionTwoScore } = this.props
-        if (authedUser === 'none') {
+        if (!authedUser.id) {
             return <Redirect to='/home' />
         }
         return (
@@ -53,14 +53,12 @@ function mapStateToProps ({users,questions,authedUser}, { match }) {
     if (authedUser === 'none') {
         return {authedUser}
     }
-    console.log(authedUser)
     const question = questions[match.params.id]
     let optionOneLen = question.optionOne.votes.length
     let optionTwoLen = question.optionTwo.votes.length
     let totalVotes = optionOneLen + optionTwoLen
     let optionOneScore = ((optionOneLen / totalVotes ) * 100).toFixed()
     let optionTwoScore = ((optionTwoLen / totalVotes ) * 100).toFixed()
-    console.log(question,optionOneLen,optionTwoLen,totalVotes,optionOneScore,optionTwoScore)
 
     const id = match.params.id
     return {

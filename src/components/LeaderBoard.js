@@ -63,7 +63,6 @@ function mapStateToProps({users}) {
         info[user].totalA = ans
         info[user].total = qns+ans
     })
-    console.log(info)
     return {
         info,
         userIds: Object.keys(info)

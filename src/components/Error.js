@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
-export default function Error() {
+
+class Error extends Component {
+
+    render() {
         return(
             <div>
-                <div
+               <div
                     style = {{
                         width: `80%`,
                         margin: `auto`,
@@ -13,8 +17,9 @@ export default function Error() {
                         padding: `10%`,
                         fontSize: `1.3em`
                     }}>
-                    <h1>404 Error</h1>
-                    <NavLink to='/home'>
+                    <h1>Error 404</h1>
+                    <NavLink
+                        to='/'>
                         <h2
                             style = {{
                                 color: `black`
@@ -25,5 +30,14 @@ export default function Error() {
                 </div>
             </div>
         )
+    }
 }
 
+
+function mapStateToProps({authedUser}) {
+    return {
+        authedUser,
+    }
+}
+
+export default connect(mapStateToProps)(Error)

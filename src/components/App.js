@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { Route, Switch, withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import WelcomeLogin from './WelcomeLogin'
@@ -9,6 +9,7 @@ import QuestionDetail from './QuestionDetail'
 import QuestionStats from './QuestionStats'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
+import ReRoute from './ReRoute'
 import Error from './Error'
 
 class App extends Component {
@@ -17,25 +18,24 @@ class App extends Component {
   }
   render() {
     return (
-      <Router>
         <Fragment>
           <LoadingBar />
           <div className='container'>
           {this.props.loading === true
               ? null
-              : <Switch> {/*To render the first path that matches*/}
+              :
+              <Switch>
                   <Route path = '/' exact component= {WelcomeLogin} />
-                  <Route path = '/home' exact component = {Home} />
-                  <Route path = '/questions/:id' component = {QuestionDetail} />
-                  <Route path = '/question/:id' component= {QuestionStats} />
-                  <Route path = '/add' exact component = {NewQuestion} />
-                  <Route path = '/leaderboard' exact component = {LeaderBoard} />
+                  <ReRoute exact path = '/home' component = {Home} />
+                  <ReRoute exact path = '/questions/:id' component = {QuestionDetail} />
+                  <ReRoute exact path = '/question/:id' component= {QuestionStats} />
+                  <ReRoute exact path = '/add' component = {NewQuestion} />
+                  <ReRoute exact path = '/leaderboard' component = {LeaderBoard} />
                   <Route component = {Error} /> {/* TODO */}
-                </Switch>
+              </Switch>
           }
           </div>
         </Fragment>
-      </Router>
     )
   }
 }
@@ -46,4 +46,4 @@ function mapStateToProps ({ authedUser }) {
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default withRouter(connect(mapStateToProps)(App))

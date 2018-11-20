@@ -14,8 +14,9 @@ class Nav extends Component {
     render() {
         const {authedUser} = this.props
 
-        if (authedUser === 'none')
-            return <Redirect to='/' />
+        if (authedUser === 'none'){
+            console.log('logging Out')
+            return <Redirect to='/' />}
 
         return (
             <nav className='nav'>
@@ -53,7 +54,7 @@ class Nav extends Component {
 
 function mapStateToProps({authedUser}) {
     return {
-        authedUser
+        authedUser,
     }
 }
 

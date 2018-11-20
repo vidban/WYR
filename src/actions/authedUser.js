@@ -19,8 +19,7 @@ export function removeAuthedUser(name) {
 
 export function handleAddAuthedUser(name) {
     return (dispatch) => {
-
-        return setAuthedUser(name)
+        setAuthedUser(name)
             .then((name) => dispatch(addAuthedUser(name)))
     }
 }

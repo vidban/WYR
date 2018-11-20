@@ -187,14 +187,12 @@ export function _saveQuestion (question) {
           questions: users[authedUser].questions.concat([formattedQuestion.id])
         }
       }
-      console.log('formattedQuestion', formattedQuestion)
       res(formattedQuestion)
     }, 1000)
   })
 }
 
 export function _saveQuestionAnswer ({ authedUser, id, answer }) {
-  console.log(authedUser, id, answer)
   return new Promise((res, rej) => {
     setTimeout(() => {
       users = {
