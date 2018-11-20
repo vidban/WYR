@@ -14,7 +14,7 @@ import Error from './Error'
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData())
+    this.props.getData()
   }
   render() {
     return (
@@ -40,10 +40,16 @@ class App extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    getData: () => dispatch(handleInitialData())
+  }
+}
+
 function mapStateToProps ({ authedUser }) {
   return {
     loading: authedUser === null
   }
 }
 
-export default withRouter(connect(mapStateToProps)(App))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))

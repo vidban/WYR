@@ -39,11 +39,11 @@ const  LeaderBoard = ({ info, userIds }) => (
 )
 
 function mapStateToProps({users}) {
-    let info = users
-    let userInfo = Object.keys(users)
+    const info = users
+    const userInfo = Object.keys(users)
     userInfo.forEach((user) => {
-        let qns = users[user].questions.length
-        let ans = Object.keys(users[user].answers).length
+        const qns = users[user].questions.length
+        const ans = Object.keys(users[user].answers).length
         info[user].totalQ = qns
         info[user].totalA = ans
         info[user].total = qns+ans
