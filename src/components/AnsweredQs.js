@@ -13,6 +13,7 @@ class AnsweredQs extends Component {
 
     render() {
         const { users, authedUser, questions, questionIds } = this.props
+        console.log(this.props)
         return (
             <div className="question">
                 <ul >

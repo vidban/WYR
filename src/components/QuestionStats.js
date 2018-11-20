@@ -2,15 +2,22 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Nav from './Nav'
 import { Redirect } from 'react-router-dom'
+import Error from './Error'
 
 
 class QuestionStats extends Component {
 
     render() {
+        if (this.props.isError) {
+            console.log('there is an error')
+            return <Error />
+        }
         const { authedUser, users, question, optionOneLen, optionTwoLen, totalVotes, optionOneScore, optionTwoScore } = this.props
+
         if (!authedUser.id) {
             return <Redirect to='/home' />
         }
+
         return (
             <div>
                 <Nav />
@@ -54,6 +61,15 @@ function mapStateToProps ({users,questions,authedUser}, { match }) {
         return {authedUser}
     }
     const question = questions[match.params.id]
+    let isError
+
+    if (question === undefined){
+        isError = true
+        return {isError}
+    }
+
+    isError = false
+
     let optionOneLen = question.optionOne.votes.length
     let optionTwoLen = question.optionTwo.votes.length
     let totalVotes = optionOneLen + optionTwoLen
@@ -62,6 +78,7 @@ function mapStateToProps ({users,questions,authedUser}, { match }) {
 
     const id = match.params.id
     return {
+        isError,
         authedUser,
         users,
         questions,
