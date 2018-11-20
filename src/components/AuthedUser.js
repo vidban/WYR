@@ -22,7 +22,7 @@ class AuthedUser extends Component {
     render() {
         const { authedUser } = this.props
         const { activeTab } = this.state
-        if (!authedUser.id){
+        if (authedUser === 'none'){
             return <Redirect to="/" />
         }
         return (

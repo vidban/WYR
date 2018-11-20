@@ -36,6 +36,7 @@ class QuestionDetail extends Component {
     render() {
         const { authedUser, users, question, id } = this.props
         const { toStats } = this.state
+        console.log(this.props)
 
         if (toStats) {
             return <Redirect to = {`/question/${id}`} />

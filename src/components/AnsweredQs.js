@@ -32,7 +32,7 @@ class AnsweredQs extends Component {
                                         </div>
                                     </div>
                                     <div className="question-view">
-                                        <Link to={`/question/${id}`} style={{textDecoration:`none`, color:`black`}} >
+                                        <Link to= {`/question/${id}`} style={{textDecoration:`none`, color:`black`}} >
                                             <div >
                                                 <span>View Question</span>
                                             </div>
