@@ -1,4 +1,4 @@
-import { GET_QUESTIONS, SAVE_ANSWER, ADD_QUESTION } from '../actions/questions';
+import { GET_QUESTIONS, SAVE_ANSWER, ADD_QUESTION } from '../actions/actionTypes';
 
 export default function questions (state = {}, action) {
     switch(action.type) {

@@ -1,4 +1,4 @@
-import { ADD_AUTHED_USER, REMOVE_AUTHED_USER } from '../actions/authedUser'
+import { ADD_AUTHED_USER, REMOVE_AUTHED_USER } from '../actions/actionTypes'
 
 export default function authedUser (state = null, action) {
     switch(action.type) {

@@ -1,7 +1,6 @@
 import { setAuthedUser } from '../utils/api'
 
-export const ADD_AUTHED_USER = 'ADD_AUTHED_USER'
-export const REMOVE_AUTHED_USER = 'REMOVE_AUTHED_USER'
+import { ADD_AUTHED_USER, REMOVE_AUTHED_USER } from './actionTypes'
 
 export function addAuthedUser (name) {
     return {

@@ -1,6 +1,4 @@
-export const GET_QUESTIONS =  'GET_QUESTIONS'
-export const SAVE_ANSWER = 'SAVE_ANSWER'
-export const ADD_QUESTION = 'SAVE_QUESTION'
+import { GET_QUESTIONS, SAVE_ANSWER, ADD_QUESTION } from './actionTypes'
 
 export function getQuestions(questions) {
     return {
