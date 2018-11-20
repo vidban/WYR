@@ -13,9 +13,11 @@ class Nav extends Component {
     }
     render() {
         const {authedUser} = this.props
+        console.log(this.props)
 
         if (authedUser === 'none'){
-            return <Redirect to='/' />}
+            return <Redirect to={{pathname:'/',
+            state: {} }}/>}
 
         return (
             <nav className='nav'>
