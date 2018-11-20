@@ -15,7 +15,6 @@ class Nav extends Component {
         const {authedUser} = this.props
 
         if (authedUser === 'none'){
-            console.log('logging Out')
             return <Redirect to='/' />}
 
         return (

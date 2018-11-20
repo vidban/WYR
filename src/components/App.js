@@ -25,7 +25,7 @@ class App extends Component {
               ? null
               :
               <Switch>
-                  <Route path = '/' exact component= {WelcomeLogin} />
+                  <Route exact path = '/' component= {WelcomeLogin} />
                   <ReRoute exact path = '/home' component = {Home} />
                   <ReRoute exact path = '/questions/:id' component = {QuestionDetail} />
                   <ReRoute exact path = '/question/:id' component= {QuestionStats} />

@@ -1,12 +1,8 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-
-class Error extends Component {
-
-    render() {
-        return(
+export default function Error () {
+       return(
             <div>
                <div
                     style = {{
@@ -31,14 +27,4 @@ class Error extends Component {
                 </div>
             </div>
         )
-    }
 }
-
-
-function mapStateToProps({authedUser}) {
-    return {
-        authedUser,
-    }
-}
-
-export default connect(mapStateToProps)(Error)
