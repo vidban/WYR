@@ -20,10 +20,10 @@ class WelcomeLogin extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const { name } = this.state
-        const { dispatch,authedUser } = this.props
+        const { dispatch, users } = this.props
 
-        dispatch(handleAddAuthedUser(name))
-        if (authedUser.id) {
+        if (users[name]) {
+            dispatch(handleAddAuthedUser(name))
             this.setState(() => ({
                 redirect: true
             }))
@@ -31,9 +31,10 @@ class WelcomeLogin extends Component {
     }
 
     render(){
-        const { allUsers, authedUser } = this.props
+        console.log(this.props,this.state)
         const {from} = this.props.location.state || {from: {pathname: '/home'}}
         const { redirect } = this.state
+        const { allUsers, authedUser } = this.props
 
         if (redirect || authedUser.id) {
             return <Redirect to = {from} />
@@ -68,6 +69,7 @@ class WelcomeLogin extends Component {
 
 function mapStateToProps({users, authedUser, questions}) {
     return {
+        users,
         allUsers: Object.keys(users),
         authedUser,
         questions,

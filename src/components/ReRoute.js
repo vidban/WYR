@@ -10,15 +10,15 @@ function ReRoute({component: Component, isLoggedIn, ...rest}){
                 ? <Component {...props} />
                 : <Redirect to={{
                 pathname:'/',
-                state: {from: props.location}
+               state: {from: props.location}
                 }}/>
             }
         />
 )}
 
-function mapStateToProps({authUser}){
+function mapStateToProps({authedUser}){
     return {
-        isLoggedIn: authUser !== 'none'
+        isLoggedIn: authedUser !== 'none'
     }
 }
 

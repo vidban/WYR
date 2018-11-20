@@ -18,13 +18,14 @@ class Error extends Component {
                         fontSize: `1.3em`
                     }}>
                     <h1>Error 404</h1>
+                    <h1>Page Not Found!!</h1>
                     <NavLink
                         to='/'>
                         <h2
                             style = {{
                                 color: `black`
                             }}>
-                            Go Home
+                            Go Back
                         </h2>
                     </NavLink>
                 </div>
