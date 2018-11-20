@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom'
 class QuestionDetail extends Component {
     state = {
         selected: null,
-        toHome: false,
+        toStats: false,
     }
 
     handleOptionChange = (e) => {
@@ -29,15 +29,18 @@ class QuestionDetail extends Component {
         dispatch(handleSaveQuestionAnswer(authedUser.id, id, selected))
 
         this.setState(() => ({
-            toHome: true
+            toStats: true
         }))
     }
 
     render() {
-        const { authedUser, users, question } = this.props
-        const { toHome } = this.state
+        const { authedUser, users, question, id } = this.props
+        const { toStats } = this.state
 
-        if (toHome === true || !authedUser.id) {
+        if (toStats) {
+            return <Redirect to = {`/question/${id}`} />
+        }
+        if (!authedUser.id) {
             return <Redirect to='/home' />
         }
         return(

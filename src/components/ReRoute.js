@@ -3,6 +3,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 function ReRoute({component: Component, isLoggedIn, ...rest}){
+    console.log(isLoggedIn)
     return(
         <Route
             {...rest}

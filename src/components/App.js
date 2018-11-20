@@ -27,8 +27,8 @@ class App extends Component {
               <Switch>
                   <Route exact path = '/' component= {WelcomeLogin} />
                   <ReRoute exact path = '/home' component = {Home} />
-                  <ReRoute exact path = '/questions/:id' component = {QuestionDetail} />
-                  <ReRoute exact path = '/question/:id' component= {QuestionStats} />
+                  <Route exact path = '/questions/:id' component = {QuestionDetail} />
+                  <Route exact path = '/question/:id' component= {QuestionStats} />
                   <ReRoute exact path = '/add' component = {NewQuestion} />
                   <ReRoute exact path = '/leaderboard' component = {LeaderBoard} />
                   <Route component = {Error} /> {/* TODO */}
