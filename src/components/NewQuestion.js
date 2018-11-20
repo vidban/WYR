@@ -13,13 +13,8 @@ class NewQuestion extends Component {
     }
 
     handleChange = (e) => {
-        const text = e.target.value
-        const id = e.target.id
-
-
-        this.setState(() => ({
-            [id]: text
-        }))
+        const { value, id } = e.target;
+        this.setState({ [id]: value })
     }
 
     handleSubmit = (e) => {
@@ -30,11 +25,11 @@ class NewQuestion extends Component {
 
         dispatch(handleSaveQuestion(optionOne, optionTwo))
 
-        this.setState(() => ({
+        this.setState({
             optionOne:'',
             optionTwo:'',
             toHome: true
-        }))
+        })
     }
 
     render() {
