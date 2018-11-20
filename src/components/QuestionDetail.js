@@ -71,7 +71,10 @@ class QuestionDetail extends Component {
                                     {question.optionTwo.text}
                             </label>
                         </div>
-                        <button style={{width: `80%`, height: `30px`}}>Submit</button>
+                        <button
+                            style={{width: `80%`, height: `30px`}}
+                            disabled={!this.state.selected}
+                        >Submit</button>
                     </form>
                 </div>
             </div>
