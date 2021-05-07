@@ -8,10 +8,6 @@ In this app, users will be able to:
  - see how other people have voted, post questions
  - see the ranking of users on the leaderboard
 
-# What I learned from doing this project
-
-This project  solidified my understanding of React and Redux while giving me a chance to express my creativity. I woked on improving the predictability of your application’s state; establish strict rules for getting, listening, and updating the store; and identify what state should live inside of Redux and what state should live inside of React components.
-
 # How to run this project:
 
 - Download the files
